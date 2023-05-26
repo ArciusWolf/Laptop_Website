@@ -1,0 +1,55 @@
+body {
+    background-image: url(./img/pxfuel.jpg);
+    background-size: cover;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(20, 20, 20, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li{
+    color: wheat;
+    display: inline-block;
+    padding: 10px 30px 10px;
+    background-color: transparent;
+}
+
+.logo {
+    margin-left: 30px;
+    width: 70px;
+    height: 70px;
+}
+
+a {
+    text-decoration: none;
+    color: wheat;
+}
+
+.headbtn {
+    margin-right: 30px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 1px solid wheat;
+    background-color: transparent;
+    color: wheat;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.headbtn:hover {
+
+    background-color: wheat;
+    color: #98694d;
+}
+
+a:hover {
+    color: #e9dbc6;
+}
