@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: content-box;
 }
 
 /* Fonts */
@@ -12,11 +13,54 @@ body {
     background-size: cover;
 }
 
+/* Header */
 header {
     position: sticky;
+    z-index: 999;
     top: 0;
     background-color: rgba(20, 20, 20, 0.2);
     backdrop-filter: blur(10px);
+}
+
+/* Product Card CSS */
+.card {
+    left: 95px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background-color: transparent;
+    backdrop-filter: blur(15px);
+    padding: 10px;
+    max-width: 200px;
+    max-height: 300px;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #f5deb3;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 13px;
+    color: #f5deb3;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.card-img-top {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.btn {
+    margin-top: 110px;
 }
 
 ul {
@@ -97,17 +141,4 @@ a {
     height: 40px;
     outline: none;
     padding: 0 5px;
-}
-
-.pdt_blk {
-    display: flex;
-    background-color: #f5deb3;
-    color: #f5deb3;
-    align-items: center;
-    width: 200px;
-    height: 300px;
-}
-
-.pdt_line {
-    display: inline-block;
 }

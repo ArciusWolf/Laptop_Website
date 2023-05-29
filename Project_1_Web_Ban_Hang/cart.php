@@ -38,16 +38,13 @@
 <?php
     if ($result -> num_rows > 0){
      while($row = $result -> fetch_assoc()){
- echo '<div class="card col-lg-2" style="width:400px; float:left;">';
- echo "<a href='product_detail.php?id=".$row["id"]."'><img class='card-img-top' src='upload/".$row["image"]."' alt='Card image'>";
-
+    echo '<div class="card col-lg-2" style="width:400px;">';
+    echo "<a href='product_detail.php?id=".$row["id"]."'><img class='card-img-top' src='upload/".$row["image"]."' alt='Card image'>";
     echo '<div class="card-body">';
     echo '<h4 class="card-title">'.$row["name"].'</h4>';
     echo '<h4 class="card-title">'.$row["price"].'</h4>';
     echo '<a href="#" class="btn btn-primary">BUY IT!</a>';
-    echo '<p class="card-text">'.$row["descriptions"].'</p>';
     echo '</div>';
-
     echo '</div>';
 
      }};
