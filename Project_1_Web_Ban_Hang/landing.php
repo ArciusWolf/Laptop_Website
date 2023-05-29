@@ -37,7 +37,7 @@
               <li>About</li>
               <button class="headbtn" onclick="window.location.href='sign_in.html';">Sign In</button>
               <button class="headbtn" onclick="window.location.href='seller.php';">Sell</button>
-              <button class="headbtn" onclick="window.location.href='#';">Cart</button>
+              <button class="headbtn" onclick="window.location.href='cart.php';">Cart</button>
             </ul>
         </div>
       </div>
@@ -46,32 +46,6 @@
   <!-- Main Section -->
   <main>
 
-  <div class="pdt_line">
-    <span class="pdt_blk">
-    <?php
-      if ($result-> num_rows> 0 ) {
-        while ($row = $result->fetch_assoc()) {
-          echo "<img width='100' src='upload/".$row["image"]."' alt=''>";
-          echo "<p>".$row["name"]."</p>";
-          echo "<p>".$row["price"]."</p>";
-        }
-      };
-    ?>
-    </span>
-  </div>
-  <div class="pdt_line">
-    <span class="pdt_blk">
-    <?php
-      if ($result-> num_rows> 0 ) {
-        while ($row = $result->fetch_assoc()) {
-          echo "<img width='100' src='upload/".$row["image"]."' alt=''>";
-          echo "<p>".$row["name"]."</p>";
-          echo "<p>".$row["price"]."</p>";
-        }
-      };
-    ?>
-    </span>
-  </div>
   <div class="pdt_line">
     <span class="pdt_blk">
     <?php
