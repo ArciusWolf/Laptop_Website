@@ -24,6 +24,7 @@ header {
 
 /* Product Card CSS */
 .card {
+    border: 2px solid #cab692;
     left: 95px;
     margin-bottom: 10px;
     margin-right: 10px;
