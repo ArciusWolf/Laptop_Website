@@ -25,7 +25,7 @@
               <li><a href="./products.php">Products</a></li>
               <li>Category</li>
               <li>About</li>
-              <button class="headbtn" onclick="window.location.href='sign_in.php';">Sign In</button>
+              <button class="headbtn" onclick="window.location.href='sign_in.html';">Sign In</button>
               <button class="headbtn" onclick="window.location.href='seller.php';">Sell</button>
             </ul>
         </div>

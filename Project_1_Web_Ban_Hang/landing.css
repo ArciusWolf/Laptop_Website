@@ -1,3 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Fonts */
+@import url(https://fonts.google.com/specimen/Montserrat);
+
+/* Landing Page Style */
 body {
     background-image: url(./img/pxfuel.jpg);
     background-size: cover;
@@ -50,6 +59,55 @@ a {
     color: #98694d;
 }
 
-a:hover {
-    color: #e9dbc6;
+.pro_btn:hover {
+    color: #201300;
+}
+
+/* Sign-In Page Style */
+
+.login_h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 600;
+}
+
+.formbox {
+    font-family: 'Montserrat', sans-serif;
+    width: 500px;
+    height: 500px;
+    background-color: rgba(20, 20, 20, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin: 100px auto;
+    padding: 20px 30px;
+}
+
+.inputbox {
+    top: 50%;
+    position: relative;
+    margin: 20px 0;
+    border-bottom: 2px solid #f5deb3;
+}
+
+.inputbox input {
+    background: transparent;
+    border: none;
+    color: #f5deb3;
+    width: 100%;
+    height: 40px;
+    outline: none;
+    padding: 0 5px;
+}
+
+.pdt_blk {
+    display: flex;
+    background-color: #f5deb3;
+    color: #f5deb3;
+    align-items: center;
+    width: 200px;
+    height: 300px;
+}
+
+.pdt_line {
+    display: inline-block;
 }

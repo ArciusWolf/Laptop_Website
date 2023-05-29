@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -11,7 +10,18 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="./landing.css">
+  <link rel="stylesheet" href="landing.css">
+
+  <?php 
+    $con = new mysqli("localhost", "root", "", "c_1405");
+    if ($con->connect_error) {
+        die("Connection Error");
+    }
+
+    $sql = "SELECT * FROM laptops";
+    $result = $con->query($sql);
+?>
+
 </head>
 
 <body>
@@ -22,11 +32,12 @@
         <div class="navbar">
           <img src="./img/logo.png" alt="AlphaFang" class="logo" onclick="window.location.href='landing.php';">
             <ul>
-              <li><a href="./products.php">Products</a></li>
+              <li><a href="./products.php" class="pro_btn">Products</a></li>
               <li>Category</li>
               <li>About</li>
-              <button class="headbtn" onclick="window.location.href='sign_in.php';">Sign In</button>
+              <button class="headbtn" onclick="window.location.href='sign_in.html';">Sign In</button>
               <button class="headbtn" onclick="window.location.href='seller.php';">Sell</button>
+              <button class="headbtn" onclick="window.location.href='#';">Cart</button>
             </ul>
         </div>
       </div>
@@ -34,51 +45,46 @@
 
   <!-- Main Section -->
   <main>
-  <table class="table table-bordered" id="table1">
-                <thead>
-                  <td>Name</td>
-                  <td>Quantity</td>
-                  <td>Price</td>
-                  <td>Ram</td>
-                  <td>Rom</td>
-                  <td>Graphics Card</td>
-                  <td>CPU</td>
-                  <td>Screen Size</td>
-                  <td>Resolution</td>
-                  <td>Descriptions</td>
-                  <td>Image</td>
-                </thead>
-                <tbody>
 
-<?php 
-    $con = new mysqli("localhost", "root", "", "c_1405");
-    if ($con->connect_error) {
-        die("Connection Error");
-    }
-
-    $sql = "SELECT * FROM laptops";
-    $result = $con->query($sql);
-?>
-<?php 
-  if ($result-> num_rows>0 ) {
-    while ($row = $result->fetch_assoc()) {
-      echo "<tr>";
-      echo "<td>".$row["name"]."</td>";
-      echo "<td>".$row["quantity"]."</td>";
-      echo "<td>".$row["price"]."</td>";
-      echo "<td>".$row["ram"]."</td>";
-      echo "<td>".$row["rom"]."</td>";
-      echo "<td>".$row["card"]."</td>";
-      echo "<td>".$row["cpu"]."</td>";
-      echo "<td>".$row["screen_size"]."</td>";
-      echo "<td>".$row["screen_resolution"]."</td>";
-      echo "<td>".$row["descriptions"]."</td>";
-      echo "<td>".$row["image"]."</td>";
-      }
-    };
-  ?>
-    </tbody>
-  </table>
+  <div class="pdt_line">
+    <span class="pdt_blk">
+    <?php
+      if ($result-> num_rows> 0 ) {
+        while ($row = $result->fetch_assoc()) {
+          echo "<img width='100' src='upload/".$row["image"]."' alt=''>";
+          echo "<p>".$row["name"]."</p>";
+          echo "<p>".$row["price"]."</p>";
+        }
+      };
+    ?>
+    </span>
+  </div>
+  <div class="pdt_line">
+    <span class="pdt_blk">
+    <?php
+      if ($result-> num_rows> 0 ) {
+        while ($row = $result->fetch_assoc()) {
+          echo "<img width='100' src='upload/".$row["image"]."' alt=''>";
+          echo "<p>".$row["name"]."</p>";
+          echo "<p>".$row["price"]."</p>";
+        }
+      };
+    ?>
+    </span>
+  </div>
+  <div class="pdt_line">
+    <span class="pdt_blk">
+    <?php
+      if ($result-> num_rows> 0 ) {
+        while ($row = $result->fetch_assoc()) {
+          echo "<img width='100' src='upload/".$row["image"]."' alt=''>";
+          echo "<p>".$row["name"]."</p>";
+          echo "<p>".$row["price"]."</p>";
+        }
+      };
+    ?>
+    </span>
+  </div>
 
   </main>
 
