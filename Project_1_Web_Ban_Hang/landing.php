@@ -10,7 +10,11 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="landing.css">
+  <link rel="stylesheet" href="landing.css" type="text/css">
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <?php 
     $con = new mysqli("localhost", "root", "", "c_1405");
@@ -35,6 +39,7 @@
               <li><a href="./products.php" class="pro_btn">Products</a></li>
               <li>Category</li>
               <li>About</li>
+              
               <button class="headbtn" onclick="window.location.href='sign_in.html';">Sign In</button>
               <button class="headbtn" onclick="window.location.href='seller.php';">Sell</button>
               <button class="headbtn" onclick="window.location.href='cart.php';">Cart</button>
@@ -43,9 +48,11 @@
       </div>
   </header>
 
-  <!-- Main Section -->
+<!-- Main Section -->
   <main>
+<!-- Slideshow Section -->
 
+<!-- Slideshow End -->
 
 <!-- PHP Show products -->
     <?php
@@ -54,10 +61,10 @@
         echo "<div class='row'>";
         while ($row = $result->fetch_assoc()) {
           echo '<div class="card col-lg-4">';
-          echo "<a href='product_detail.php?id=".$row["id"]."'><img class='card-img-top' width='300px' src='upload/".$row["image"]."' alt='Card image'>";
+          echo "<a href='product_detail.php?id=".$row["id"]."'d style='' class='card-link'><img class='card-img-top' width='300px' src='upload/".$row["image"]."' alt='Card image'>";
             echo '<div class="card-body">';
             echo '<div>';
-            echo '<h4 class="card-title">'.$row["name"].'</h4>';
+            echo '<h4 class="card-title" style="">'.$row["name"].'</h4>';
             echo '<h4 class="card-text">'.$row["price"].'$</h4>';
             echo '</div>';
             echo '</div>';
@@ -66,7 +73,9 @@
         }
       };
     ?>
-  
+<!-- End PHP Show products -->
+
+
   </main>
 
   <!-- Footer Section -->
@@ -77,6 +86,13 @@
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script>
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"

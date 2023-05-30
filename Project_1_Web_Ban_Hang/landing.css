@@ -22,6 +22,8 @@ header {
     backdrop-filter: blur(10px);
 }
 
+
+
 /* Product Card CSS */
 .card {
     border: 2px solid #cab692;
@@ -40,8 +42,8 @@ header {
 }
 
 .card-title {
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 500;
     color: #f5deb3;
     text-align: center;
     margin-top: 10px;
@@ -49,7 +51,8 @@ header {
 }
 
 .card-text {
-    font-size: 13px;
+    font-size: 17px;
+    font-weight: 700;
     color: #f5deb3;
     text-align: center;
     margin-top: 10px;
@@ -59,7 +62,7 @@ header {
     max-width: 200px;
     max-height: 200px;
 }
-
+/* End of Product Card */
 .btn {
     margin-top: 110px;
 }
