@@ -55,24 +55,25 @@
 <!-- Slideshow End -->
 
 <!-- PHP Show products -->
-    <?php
-      if ($result-> num_rows> 0 ) {
-        echo "<div class='container'>";
-        echo "<div class='row'>";
-        while ($row = $result->fetch_assoc()) {
-          echo '<div class="card col-lg-4">';
-          echo "<a href='product_detail.php?id=".$row["id"]."'d style='' class='card-link'><img class='card-img-top' width='300px' src='upload/".$row["image"]."' alt='Card image'>";
-            echo '<div class="card-body">';
-            echo '<div>';
-            echo '<h4 class="card-title" style="">'.$row["name"].'</h4>';
-            echo '<h4 class="card-text">'.$row["price"].'$</h4>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
-
-        }
-      };
-    ?>
+  <?php
+    if ($result-> num_rows> 0 ) {
+      echo "<div class='container'>";
+      echo "<div class='row'>";
+      while ($row = $result->fetch_assoc()) {
+        echo 
+        '<div class="card col-lg-4">
+        <a href="product_detail.php?id='.$row["id"].'">
+        <img class="card-img-top" width="300px" src="upload/'.$row["image"].'" alt="Card image">
+        <div class="card-body">
+        <div>
+        <h4 class="card-title">"'.$row['name'].'"</h4>
+        <h4 class="card-text">"'.$row["price"].'"$</h4>
+        </div>
+        </div>
+        </div>';
+      }
+    };
+  ?>
 <!-- End PHP Show products -->
 
 
@@ -87,14 +88,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
   </script>
-
-  <script>
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-  })
-  </script>
-
+  <!-- Bootstrap JavaScript v5.2.1 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>

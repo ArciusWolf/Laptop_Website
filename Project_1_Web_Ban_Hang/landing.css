@@ -37,6 +37,10 @@ header {
     max-height: 300px;
 }
 
+.card:hover{
+    border: 2px solid red;
+}
+
 .card-body {
     padding: 0;
 }
@@ -62,6 +66,7 @@ header {
     max-width: 200px;
     max-height: 200px;
 }
+
 /* End of Product Card */
 .btn {
     margin-top: 110px;
