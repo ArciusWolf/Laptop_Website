@@ -11,6 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <link rel="stylesheet" href="landing.css" type="text/css">
+  <link rel="stylesheet" href="slideshow.css">
 
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
@@ -51,7 +52,20 @@
 <!-- Main Section -->
   <main>
 <!-- Slideshow Section -->
-
+<section class="container">
+	<div class="slider-wrapper">
+		<div class="slider">
+			<img id="slide-1" src="./img/1.jpg" alt="" />
+			<img id="slide-2" src="./img/2.jpg" alt="" />
+			<img id="slide-3" src="./img/3.jpg" alt="" />
+		</div>
+		<div class="slider-nav">
+			<a href="#slide-1"></a>
+			<a href="#slide-2"></a>
+			<a href="#slide-3"></a>
+		</div>
+	</div>
+</section>
 <!-- Slideshow End -->
 
 <!-- PHP Show products -->
@@ -61,13 +75,18 @@
       echo "<div class='row'>";
       while ($row = $result->fetch_assoc()) {
         echo 
-        '<div class="card col-lg-4">
+        '<div class="card">
         <a href="product_detail.php?id='.$row["id"].'">
         <img class="card-img-top" width="300px" src="upload/'.$row["image"].'" alt="Card image">
         <div class="card-body">
         <div>
         <h4 class="card-title">"'.$row['name'].'"</h4>
-        <h4 class="card-text">"'.$row["price"].'"$</h4>
+        <h4 class="card-text">'.$row["price"].'$</h4>
+        <div class="card_overlay">
+        <p class="card-description">'.$row["card"].'</p>
+        <p class="card-description">'.$row["cpu"].'</p>
+        <p class="card-description">'.$row["ram"].'</p>
+        </div>
         </div>
         </div>
         </div>';

@@ -20,6 +20,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <link rel="stylesheet" href="landing.css" type="text/css">
+  <link rel="stylesheet" href="product.css">
 
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
@@ -56,23 +57,29 @@
 <?php
     if ($result-> num_rows> 0 ) {
         while ($row = $result->fetch_assoc()) {
-            echo "<div class='product_detail'>";
-            echo "".$row["name"]."";
-            echo "<br>";
-            echo "".$row["price"]."$";
-            echo "<br>";
-            echo "".$row["ram"]."GB";
-            echo "<br>";
-            echo "ROM: ".$row["rom"]."";
-            echo "<br>";
-            echo "VGA: ".$row["card"]."";
-            echo "<br>";
-            echo "CPU: ".$row["cpu"]."";
-            echo "<br>";
-            echo "Screen Resolution: ".$row["screen_resolution"]."";
-            echo "<br>";
-            echo "Description: ".$row["descriptions"]."";
-            echo "</div>";
+            echo "<div class='product_detail'>
+
+            <div class='img-holder'>
+            <img src='upload/".$row["image"]."' alt='product' class='product_img' style='width:100px'>
+            </div>
+
+            <div class='product_info'>
+            ".$row["name"]."
+            <br>
+            ".$row["price"]."$
+            <br>
+            ".$row["ram"]."GB
+            <br>
+            ROM: ".$row["rom"]."
+            <br>
+            VGA: ".$row["card"]."
+            <br>
+            CPU: ".$row["cpu"]."
+            <br>
+            Screen Resolution: ".$row["screen_resolution"]."
+            <br>
+            Description: ".$row["descriptions"]."
+            </div>";
         }
     };    
 ?>
