@@ -40,7 +40,7 @@
               <li>Category</li>
               <li>About</li>
               
-              <button class="headbtn" onclick="window.location.href='sign_in.html';">Sign In</button>
+              <button class="headbtn" onclick="window.location.href='sign_in.html';">Sign</button>
               <button class="headbtn" onclick="window.location.href='seller.php';">Sell</button>
               <button class="headbtn" onclick="window.location.href='cart.php';">Cart</button>
             </ul>
