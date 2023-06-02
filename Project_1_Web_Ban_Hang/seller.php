@@ -36,7 +36,7 @@
     <!-- Product Details Insert -->
     <section>
       <div class="boxed">
-        <form action="./function/seller_upload.php" method="post" enctype="multipart/form-data">
+        <form action="seller_upload.php" method="post" enctype="multipart/form-data">
           <br>
           <label for="item">Name</label>
           <input type = "text" name="name" id="NAME" placeholder = "Name"/>

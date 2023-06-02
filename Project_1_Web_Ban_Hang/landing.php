@@ -11,7 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <link rel="stylesheet" href="landing.css" type="text/css">
-  <link rel="stylesheet" href="slideshow.css">
+  <link rel="stylesheet" href="header.css">
 
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
@@ -26,23 +26,42 @@
     $sql = "SELECT * FROM laptops";
     $result = $con->query($sql);
 ?>
-
 </head>
 
 <body>
-
   <!-- Header Section -->
   <header>
       <div class="header">
         <div class="navbar">
           <img src="./img/logo.png" alt="AlphaFang" class="logo" onclick="window.location.href='landing.php';">
             <ul>
-              <li><a href="./products.php" class="pro_btn">Products</a></li>
-              <li>Category</li>
-              <li>About</li>
-              
+            <div class="container">
+              <div class="src-box">
+                <form method="post">
+                <input type="text" name="string" placeholder="Search for product" class="search-box">
+                <input type="image" src="./img/magnifying-glass.png" name="submit" value="" class="src-btn">
+                </form>
+              </div>
+            </div>
+              <div class="dropdown">
+                <button class="dropbtn">Category</button>
+                <div class="dropdown-content">
+                  <a href="#">Asus</a>
+                  <a href="#">Dell</a>
+                  <a href="#">Acer</a>
+                  <a href="#">Macbook</a>
+                  <a href="#">ACER</a>
+                  <a href="#">ACER</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn">Account</button>
+                <div class="dropdown-content">
+                  <a href="#">Sign In</a>
+                  <a href="#">Sign Up</a>
+                </div>
+              </div>
               <button class="headbtn" onclick="window.location.href='sign_in.html';">Sign In</button>
-              <button class="headbtn" onclick="window.location.href='seller.php';">Sell</button>
               <button class="headbtn" onclick="window.location.href='cart.php';">Cart</button>
             </ul>
         </div>
@@ -52,23 +71,38 @@
 <!-- Main Section -->
   <main>
 <!-- Slideshow Section -->
-<section class="container">
-	<div class="slider-wrapper">
-		<div class="slider">
-			<img id="slide-1" src="./img/1.jpg" alt="" />
-			<img id="slide-2" src="./img/2.jpg" alt="" />
-			<img id="slide-3" src="./img/3.jpg" alt="" />
-		</div>
-		<div class="slider-nav">
-			<a href="#slide-1"></a>
-			<a href="#slide-2"></a>
-			<a href="#slide-3"></a>
-		</div>
-	</div>
-</section>
+  <div class="container">
+    <div id="slideshow" class="carousel slide" data-bs-ride="true">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#slideshow" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#slideshow" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#slideshow" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./img/2.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="./img/1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="./img/3.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#slideshow" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#slideshow" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
 <!-- Slideshow End -->
 
 <!-- PHP Show products -->
+<div class="container">
   <?php
     if ($result-> num_rows> 0 ) {
       echo "<div class='container'>";
@@ -80,12 +114,15 @@
         <img class="card-img-top" width="300px" src="upload/'.$row["image"].'" alt="Card image">
         <div class="card-body">
         <div>
-        <h4 class="card-title">"'.$row['name'].'"</h4>
+        <h4 class="card-title">'.$row['name'].'</h4>
         <h4 class="card-text">'.$row["price"].'$</h4>
         <div class="card_overlay">
-        <p class="card-description">'.$row["card"].'</p>
-        <p class="card-description">'.$row["cpu"].'</p>
-        <p class="card-description">'.$row["ram"].'</p>
+        <img src="./img/gpu.png" class="img-overlay" style="width:50px; height:50px">
+        <p class="card-description" style="font-family:Poppins, sans-serif; font-size:12px">'.$row["card"].'</p>
+        <img src="./img/cpu.png" class="img-overlay" style="width:35px; height:35px">
+        <p class="card-description" style="font-family:Poppins, sans-serif; font-size:12px">'.$row["cpu"].'</p>
+        <img src="./img/ram.png" class="img-overlay" style="width:50px; height:50px">
+        <p class="card-description" style="font-family:Poppins, sans-serif; font-size:12px">'.$row["ram"].'GB RAM</p>
         </div>
         </div>
         </div>
@@ -93,14 +130,12 @@
       }
     };
   ?>
+  </div>
 <!-- End PHP Show products -->
-
-
   </main>
-
   <!-- Footer Section -->
   <footer>
-    <!-- place footer here -->
+    
   </footer>
 
   <!-- Bootstrap JavaScript Libraries -->
@@ -111,6 +146,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
+
+<!-- Script Section -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<!-- Script Section End-->
 </body>
 
 </html>

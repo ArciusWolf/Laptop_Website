@@ -55,34 +55,38 @@
 <!-- Slideshow End -->
 
 <?php
+$obj = null;
     if ($result-> num_rows> 0 ) {
         while ($row = $result->fetch_assoc()) {
+          $obj = $row;
             echo "<div class='product_detail'>
 
             <div class='img-holder'>
-            <img src='upload/".$row["image"]."' alt='product' class='product_img' style='width:100px'>
+            <img src='upload/".$obj["image"]."' alt='product' class='product_img' style='width:100px'>
             </div>
 
             <div class='product_info'>
-            ".$row["name"]."
+            ".$obj["name"]."
             <br>
-            ".$row["price"]."$
+            ".$obj["price"]."$
             <br>
-            ".$row["ram"]."GB
+            ".$obj["ram"]."GB
             <br>
-            ROM: ".$row["rom"]."
+            ROM: ".$obj["rom"]."
             <br>
-            VGA: ".$row["card"]."
+            VGA: ".$obj["card"]."
             <br>
-            CPU: ".$row["cpu"]."
+            CPU: ".$obj["cpu"]."
             <br>
-            Screen Resolution: ".$row["screen_resolution"]."
+            Screen Resolution: ".$obj["screen_resolution"]."
             <br>
-            Description: ".$row["descriptions"]."
+            Description: ".$obj["descriptions"]."
             </div>";
         }
     };    
 ?>
+<button><a href="product_cart.php?id=<?php echo $obj['id']; ?>" class="btn_add_cart">Thêm vào giỏ hàng</a>
+
   </main>
 
   <!-- Footer Section -->
