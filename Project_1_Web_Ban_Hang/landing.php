@@ -35,14 +35,6 @@
         <div class="navbar">
           <img src="./img/logo.png" alt="AlphaFang" class="logo" onclick="window.location.href='landing.php';">
             <ul>
-            <div class="container">
-              <div class="src-box">
-                <form method="post">
-                <input type="text" name="string" placeholder="Search for product" class="search-box">
-                <input type="image" src="./img/magnifying-glass.png" name="submit" value="" class="src-btn">
-                </form>
-              </div>
-            </div>
               <div class="dropdown">
                 <button class="dropbtn">Category</button>
                 <div class="dropdown-content">
@@ -50,8 +42,8 @@
                   <a href="#">Dell</a>
                   <a href="#">Acer</a>
                   <a href="#">Macbook</a>
-                  <a href="#">ACER</a>
-                  <a href="#">ACER</a>
+                  <a href="#">Lenovo</a>
+                  <a href="#">Apple</a>
                 </div>
               </div>
               <div class="dropdown">

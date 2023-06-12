@@ -21,6 +21,7 @@
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <link rel="stylesheet" href="landing.css" type="text/css">
   <link rel="stylesheet" href="product.css">
+  <link rel="stylesheet" href="header.css">
 
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
@@ -29,19 +30,39 @@
 </head>
 
 <body>
-
   <!-- Header Section -->
   <header>
       <div class="header">
         <div class="navbar">
           <img src="./img/logo.png" alt="AlphaFang" class="logo" onclick="window.location.href='landing.php';">
             <ul>
-              <li><a href="./products.php" class="pro_btn">Products</a></li>
-              <li>Category</li>
-              <li>About</li>
-              
+            <div class="container">
+              <div class="src-box">
+                <form method="post">
+                <input type="text" name="string" placeholder="Search for product" class="search-box">
+                <input type="image" src="./img/magnifying-glass.png" name="submit" value="" class="src-btn">
+                </form>
+              </div>
+            </div>
+              <div class="dropdown">
+                <button class="dropbtn">Category</button>
+                <div class="dropdown-content">
+                  <a href="#">Asus</a>
+                  <a href="#">Dell</a>
+                  <a href="#">Acer</a>
+                  <a href="#">Macbook</a>
+                  <a href="#">Lenovo</a>
+                  <a href="#">Apple</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn">Account</button>
+                <div class="dropdown-content">
+                  <a href="#">Sign In</a>
+                  <a href="#">Sign Up</a>
+                </div>
+              </div>
               <button class="headbtn" onclick="window.location.href='sign_in.html';">Sign In</button>
-              <button class="headbtn" onclick="window.location.href='seller.php';">Sell</button>
               <button class="headbtn" onclick="window.location.href='cart.php';">Cart</button>
             </ul>
         </div>
@@ -59,10 +80,10 @@ $obj = null;
     if ($result-> num_rows> 0 ) {
         while ($row = $result->fetch_assoc()) {
           $obj = $row;
-            echo "<div class='product_detail'>
+            echo "<div class='container'>
 
             <div class='img-holder'>
-            <img src='upload/".$obj["image"]."' alt='product' class='product_img' style='width:100px'>
+            <img src='upload/".$obj["image"]."' alt='product' class='product_img'>
             </div>
 
             <div class='product_info'>
