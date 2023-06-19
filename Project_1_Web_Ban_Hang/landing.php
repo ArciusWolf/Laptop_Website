@@ -12,6 +12,7 @@
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <link rel="stylesheet" href="landing.css" type="text/css">
   <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="search.css">
 
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
@@ -53,6 +54,7 @@
                   <a href="#">Sign Up</a>
                 </div>
               </div>
+        
               <button class="headbtn" onclick="window.location.href='sign_in.html';">Sign In</button>
               <button class="headbtn" onclick="window.location.href='cart.php';">Cart</button>
             </ul>
@@ -62,6 +64,8 @@
 
 <!-- Main Section -->
   <main>
+
+	
 <!-- Slideshow Section -->
   <div class="container">
     <div id="slideshow" class="carousel slide" data-bs-ride="true">

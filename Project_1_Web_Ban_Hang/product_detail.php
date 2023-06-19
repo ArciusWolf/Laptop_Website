@@ -36,14 +36,6 @@
         <div class="navbar">
           <img src="./img/logo.png" alt="AlphaFang" class="logo" onclick="window.location.href='landing.php';">
             <ul>
-            <div class="container">
-              <div class="src-box">
-                <form method="post">
-                <input type="text" name="string" placeholder="Search for product" class="search-box">
-                <input type="image" src="./img/magnifying-glass.png" name="submit" value="" class="src-btn">
-                </form>
-              </div>
-            </div>
               <div class="dropdown">
                 <button class="dropbtn">Category</button>
                 <div class="dropdown-content">
@@ -62,7 +54,7 @@
                   <a href="#">Sign Up</a>
                 </div>
               </div>
-              <button class="headbtn" onclick="window.location.href='sign_in.html';">Sign In</button>
+              <button class="headbtn" onclick="window.location.href='sign_in.html';">Sign</button>
               <button class="headbtn" onclick="window.location.href='cart.php';">Cart</button>
             </ul>
         </div>
@@ -100,13 +92,14 @@ $obj = null;
             CPU: ".$obj["cpu"]."
             <br>
             Screen Resolution: ".$obj["screen_resolution"]."
-            <br>
-            Description: ".$obj["descriptions"]."
             </div>";
         }
     };    
 ?>
+<br>
+<div class="btn-cart">
 <button><a href="product_cart.php?id=<?php echo $obj['id']; ?>" class="btn_add_cart">Thêm vào giỏ hàng</a>
+</div>
 
   </main>
 
