@@ -31,11 +31,16 @@ body {
 .login_h1 {
     text-align: center;
     margin-bottom: 50px;
-    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    background: linear-gradient(to right, #fff700 0%, #9b00ef 100%); 
+    -webkit-background-clip: text;
+    color: transparent;
+
 }
 
 .formbox {
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
     width: 500px;
     height: 500px;
     background-color: rgba(20, 20, 20, 0.2);
@@ -60,6 +65,31 @@ body {
     height: 40px;
     outline: none;
     padding: 0 5px;
+}
+
+.login-func {
+    text-align: center;
+
+    margin-top: 20px;
+}
+
+.login-btn {
+    background-color: transparent;
+    border: 1px solid #f5deb3;
+    color: #f5deb3;
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.login-btn:hover {
+    background-color: #f5deb3;
+    color: #000;
 }
 
 /* Product Card CSS */
@@ -156,3 +186,18 @@ body {
     padding: 10px;
 }
 /* End of Product Card */
+
+    .footer {
+    text-align: center;
+    }
+    .footer-center{
+        padding-top: 15px ;
+        color: #f5deb3;
+        text-align: center;
+    }
+    .footer-bottom{
+        color: #f5deb3;
+        margin: 20px;
+        text-align: center;
+    
+    }

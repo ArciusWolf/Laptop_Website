@@ -12,7 +12,7 @@
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <link rel="stylesheet" href="landing.css" type="text/css">
   <link rel="stylesheet" href="header.css">
-  <link rel="stylesheet" href="search.css">
+  <link rel="stylesheet" href="footer.css">
 
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
@@ -50,12 +50,12 @@
               <div class="dropdown">
                 <button class="dropbtn">Account</button>
                 <div class="dropdown-content">
-                  <a href="#">Sign In</a>
-                  <a href="#">Sign Up</a>
+                  <a href="sign_in.php">Sign In</a>
+                  <a href="sign_up.php">Sign Up</a>
                 </div>
               </div>
         
-              <button class="headbtn" onclick="window.location.href='sign_in.html';">Sign In</button>
+              <button class="headbtn" onclick="window.location.href='seller.php';">Upload</button>
               <button class="headbtn" onclick="window.location.href='cart.php';">Cart</button>
             </ul>
         </div>
@@ -65,7 +65,12 @@
 <!-- Main Section -->
   <main>
 
-	
+  <?php if (isset($_GET['info'])) { ?>
+        <p style="border: 2px solid #00ff08; border-radius: 10px; padding:10px; backdrop-filter:blur(15px); color: #00ff08;">
+        <?php echo $_GET['info']; ?>
+        </p>
+        <?php } ?>
+
 <!-- Slideshow Section -->
   <div class="container">
     <div id="slideshow" class="carousel slide" data-bs-ride="true">
@@ -130,8 +135,14 @@
 <!-- End PHP Show products -->
   </main>
   <!-- Footer Section -->
-  <footer>
-    
+  <footer style="backdrop-filter: blur(15px); border: 2px solid #f3deb3;">
+    <div class="footer-center">
+        <p>
+        © 2023 AlphaFang Store / Address: 261 - 263 Khánh Hội, P5, Q4, TP. Hồ Chí Minh <br>
+        GPĐKKD số 0311609355 do Sở KHĐT TP.HCM cấp ngày 08/03/2012. GP số 47/GP-TTĐT do sở TTTT TP HCM cấp ngày 02/07/2018. <br>
+      Điện thoại: (028) 7302 3456. Email: fptshop@fpt.com.vn. Chịu trách nhiệm nội dung: Nguyễn Trịnh Nhật Linh. <br>
+    </p></div>
+    <div class="footer-bottom">AlphaFang © 2023 - Copyright Belong To AlphaFang Studio</div>
   </footer>
 
   <!-- Bootstrap JavaScript Libraries -->
