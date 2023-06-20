@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="landing.css" type="text/css">
   <link rel="stylesheet" href="header.css">
   <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="css/all.css">
 
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
@@ -36,6 +37,14 @@
         <div class="navbar">
           <img src="./img/logo.png" alt="AlphaFang" class="logo" onclick="window.location.href='landing.php';">
             <ul>
+            <div class="dropdown">
+                <button class="dropbtn">Admin</button>
+                <div class="dropdown-content">
+                  <a href="sign_in.php">Dashboard</a>
+                  <a href="sign_in.php">Product List</a>
+                  <a href="seller.php">Add Product</a>
+                </div>
+              </div>
               <div class="dropdown">
                 <button class="dropbtn">Category</button>
                 <div class="dropdown-content">
@@ -54,9 +63,7 @@
                   <a href="sign_up.php">Sign Up</a>
                 </div>
               </div>
-        
-              <button class="headbtn" onclick="window.location.href='seller.php';">Upload</button>
-              <button class="headbtn" onclick="window.location.href='cart.php';">Cart</button>
+              <button class="headbtn" onclick="window.location.href='cart.php';"><i class="fa-solid fa-cart-shopping"></i></button>
             </ul>
         </div>
       </div>

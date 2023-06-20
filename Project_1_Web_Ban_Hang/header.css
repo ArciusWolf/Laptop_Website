@@ -44,13 +44,13 @@ a {
     color: wheat;
     font-size: 15px;
     font-weight: bold;
+    transition: 0.3s;
 }
 
 .headbtn:hover {
-
-    background-color: wheat;
-    color: #98694d;
-}
+    background: linear-gradient(45deg, rgb(255, 225, 0),rgb(60, 0, 255));
+    color: #ffffff;
+}   
 
 .pro_btn:hover {
     color: #201300;
@@ -72,27 +72,29 @@ a {
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgba(52, 52, 52, 0.5);
+    background: linear-gradient(45deg, rgb(255, 225, 0, 0.8),rgb(60, 0, 255, 0.8));
     backdrop-filter: blur(10px);
     border: 2px solid wheat;
-    border-radius: 10px;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
   
   .dropdown-content a {
-    color: #f5deb3;
+    color: #ffffff;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    transition: 0.3s;
   }
 
   .dropdown-content a:hover {
-    background-color: #4d0287;
-    border-radius: 10px;
+    background: linear-gradient(45deg, rgba(98, 0, 255, 0.6),rgba(194, 120, 255, 0.6));
+    color: #ffffff;
 }
 
-  .dropdown:hover .dropdown-content {display: block;}
+  .dropdown:hover .dropdown-content {
+    display: block;
+}
   
   /* .dropdown:hover .dropbtn {}  */

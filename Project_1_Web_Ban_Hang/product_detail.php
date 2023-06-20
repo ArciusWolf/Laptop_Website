@@ -60,65 +60,54 @@
         </div>
       </div>
   </header>
-
+<!-- 
+  <div class='img-holder'>
+                    <img src='upload/".$obj["image"]."' alt='product' class='product_img'>
+                  </div> -->
 <!-- Main Section -->
   <main>
-    <!-- Slideshow Section -->
-    <div class="container">
-        <div id="slideshow" class="carousel slide" data-bs-ride="true">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#slideshow" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#slideshow" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#slideshow" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="./img/2.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="./img/1.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="./img/3.jpg" class="d-block w-100" alt="...">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#slideshow" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#slideshow" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
-    <!-- Slideshow End -->
+
     <div>
     <?php
     $obj = null;
         if ($result-> num_rows> 0 ) {
             while ($row = $result->fetch_assoc()) {
               $obj = $row;
-                echo "<div class='container'>
+                echo "
+                <div class='container'>
+                  <h1 class='prd-name'>".$obj["name"]." (".$obj["ram"]." GB | ".$obj["card"]." | ".$obj["cpu"].")</h1>
+                  <div class='product'>
+                    <div class='product_info'>
+                      <div class='img-holder'>
+                        <img src='upload/".$obj["image"]."' alt='product' class='product_img'>
+                      </div>
+                      <div class='product_detail'>
+                        <br>
+                        <h3>Device Information</h3>
+                        <ul>
+                        <li>Product Name: ".$obj["name"]."</li>
+                        <li>RAM: ".$obj["ram"]." GB</li>
+                        <li>ROM: ".$obj["rom"]." GB</li>
+                        <li>VGA: ".$obj["card"]."</li>
+                        <li>CPU: ".$obj["cpu"]."</li>
+                        <li>Screen Resolution: ".$obj["screen_resolution"]."
+                        </ul>
+                        <h2 class='price'>Price: ".$obj["price"]."$</h2>
 
-                <div class='img-holder'>
-                  <img src='upload/".$obj["image"]."' alt='product' class='product_img'>
+                        <div class='cart-btn'>
+                            <button class='btn_add_cart'><a href='product_cart.php?id=<?php echo ".$obj["id"].";?>' >Add To Cart</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
                 </div>
-
-                <div class='product_info'>
-                <h3>Device Information</h3>
-                <ul>
-                  <li>Product Name: ".$obj["name"]."</li>
-                  <li>Price: ".$obj["price"]."$</li>
-                  <li>RAM: ".$obj["ram"]." GB</li>
-                  <li>ROM: ".$obj["rom"]." GB</li>
-                  <li>VGA: ".$obj["card"]."</li>
-                  <li>CPU: ".$obj["cpu"]."</li>
-                  <li>Screen Resolution: ".$obj["screen_resolution"]."
-                </ul>
-                    <div class='cart-btn'>
-                      <button class='btn_add_cart'><a href='product_cart.php?id=<?php echo ".$obj["id"].";?>' >Add To Cart</a>
-                    </div
+                
+                <div class='container'>
+                <div class='product_desc'>
+                <h1 class='text-gra'>About This Product</h1>
+                  <p>".$obj["descriptions"]."</p>
                   </div>
                 </div>";
             }
@@ -131,15 +120,7 @@
   </main>
 
   <!-- Footer Section -->
-  <footer style="backdrop-filter: blur(15px); border: 2px solid #f3deb3;">
-    <div class="footer-center">
-        <p>
-        © 2023 Công Ty Cổ Phần Bán Lẻ Kỹ Thuật Số FPT / Địa chỉ: 261 - 263 Khánh Hội, P5, Q4, TP. Hồ Chí Minh <br>
-        GPĐKKD số 0311609355 do Sở KHĐT TP.HCM cấp ngày 08/03/2012. GP số 47/GP-TTĐT do sở TTTT TP HCM cấp ngày 02/07/2018. <br>
-      Điện thoại: (028) 7302 3456. Email: fptshop@fpt.com.vn. Chịu trách nhiệm nội dung: Nguyễn Trịnh Nhật Linh. <br>
-        </p></div>
-    <div class="footer-bottom">Copyright © 2020 KTW - Bản quyền thuộc về LIMBO</div>
-  </footer>
+
 
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

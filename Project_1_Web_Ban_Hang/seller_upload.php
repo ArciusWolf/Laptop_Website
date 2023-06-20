@@ -2,6 +2,9 @@
 <?php
 if (isset($_POST["name"])) {
     $con = new mysqli ("localhost", "root", "", "c_1405");
+    if ($con->connect_error) {
+        die("Connection failed: " . $con->connect_error);
+    }
     $name = $_POST["name"];
     $quantity = $_POST["quantity"];
     $price = $_POST["price"];
@@ -16,6 +19,7 @@ if (isset($_POST["name"])) {
     $screen_size =$_POST["screen_size"];
     $screen_resolution =$_POST["screen_resolution"];
     $description =$_POST["descriptions"];
+    // $category_id = $_POST["category_id"];
 
     $files= $_FILES["image"];
 
@@ -33,10 +37,10 @@ if (isset($_POST["name"])) {
     $fileNameEnd = $fileNameInfo["filename"]."_".date("Y_m_d_H_i_s").".".$fileNameInfo["extension"];
 
 //  SQL Query Command
-    $sql = "INSERT INTO laptops 
-    (name, quantity, price, ram, rom, card, cpu, screen_size, screen_resolution, descriptions, weight, length, width, height, image) 
+    $sql = "INSERT INTO 
+    laptops (name, quantity, price, ram, rom, card, cpu, screen_size, screen_resolution, descriptions, weight, length, width, height, image, ) 
     VALUES
-    ('$name','$quantity','$price','$ram','$rom','$card','$cpu','$screen_size','$screen_resolution','$description','$weight','$length','$width','$height','".$fileNameEnd."')";
+    ('$name','$quantity','$price','$ram','$rom','$card','$cpu','$screen_size','$screen_resolution','$description','$weight','$length','$width','$height', '".$fileNameEnd."')";
 
 
     $fileUpload = "upload/".$fileNameEnd;
@@ -46,10 +50,9 @@ if (isset($_POST["name"])) {
     } else {
         echo "<br> File upload failed";
     }if($con->query($sql) === TRUE){
-        echo "<br> Insert Success";
-        header("Location:seller.php");
+        header("Location:seller.php?message=Product added successfully");
     } else {
-        echo "<br> Insert Error".$con->error;
+        header("Location:seller.php?error=Insert Error").$con->error;;
         }
     }
 }

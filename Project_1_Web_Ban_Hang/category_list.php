@@ -25,7 +25,7 @@
   <main>
     <div class="container">
         <h3>Category List</h3>
-        <a href="category_add.php" class="btn-primary"><i class="fa-solid fa-circle-plus"></i></a>
+        <a href="./function/category_add.php" class="btn-primary"><i class="fa-solid fa-circle-plus"></i></a>
     </div>
   <table class="table table-bordered table-striped">
   <thead>

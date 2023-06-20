@@ -76,13 +76,11 @@
             <span data-placeholder="Password"></span>
           </div>
 
-      
           <button type="submit" class="login-btn">Login</button>
           <div class="login-func">
-          <h6>Don't have an account?</h6>
-          <h6>Forget your password?</h6>
+            <a href="#"><h6>Don't have an account?</h6></a>
+            <a href="#"><h6>Forget your password?</h6></a>
           </div>
-
         </form>
       </section>
     </div>
