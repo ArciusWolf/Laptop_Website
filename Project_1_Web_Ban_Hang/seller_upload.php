@@ -19,7 +19,8 @@ if (isset($_POST["name"])) {
     $screen_size =$_POST["screen_size"];
     $screen_resolution =$_POST["screen_resolution"];
     $description =$_POST["descriptions"];
-    // $category_id = $_POST["category_id"];
+    $category_id = $_POST["category_id"];
+    $category = $_POST["category"];
 
     $files= $_FILES["image"];
 
@@ -27,7 +28,7 @@ if (isset($_POST["name"])) {
     if ($files["size"] > 50*1000000) {
         echo "<br> Sorry, your file is too large.";
     } else if ($files["type"] != "image/jpeg" && $files["type"] != "image/png" && $files["type"] != "image/jpg") {
-        echo "<br> Image JPEG, PNG, JPG only.";
+        header("Location:seller.php?error=Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
     } else {
 
     $fileName = $files["name"];
@@ -38,9 +39,9 @@ if (isset($_POST["name"])) {
 
 //  SQL Query Command
     $sql = "INSERT INTO 
-    laptops (name, quantity, price, ram, rom, card, cpu, screen_size, screen_resolution, descriptions, weight, length, width, height, image, ) 
+    laptops (name, quantity, price, ram, rom, card, cpu, screen_size, screen_resolution, descriptions, weight, length, width, height, image, category_id, category ) 
     VALUES
-    ('$name','$quantity','$price','$ram','$rom','$card','$cpu','$screen_size','$screen_resolution','$description','$weight','$length','$width','$height', '".$fileNameEnd."')";
+    ('$name','$quantity','$price','$ram','$rom','$card','$cpu','$screen_size','$screen_resolution','$description','$weight','$length','$width','$height', '".$fileNameEnd."', '$category_id', '$category')";
 
 
     $fileUpload = "upload/".$fileNameEnd;

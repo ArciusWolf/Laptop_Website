@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -11,24 +10,52 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="landing.css">
+  <link rel="stylesheet" href="landing.css" type="text/css">
   <link rel="stylesheet" href="header.css">
   <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="css/all.css">
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body>
-
   <!-- Header Section -->
   <header>
       <div class="header">
         <div class="navbar">
           <img src="./img/logo.png" alt="AlphaFang" class="logo" onclick="window.location.href='landing.php';">
             <ul>
-              <li><a href="./products.php">Products</a></li>
-              <li>Category</li>
-              <li>About</li>
-              <button class="headbtn" onclick="window.location.href='sign_in.html';">Sign In</button>
-              <button class="headbtn" onclick="window.location.href='seller.php';">Sell</button>
+            <div class="dropdown">
+                <button class="dropbtn">Admin</button>
+                <div class="dropdown-content">
+                  <a href="sign_in.php">Dashboard</a>
+                  <a href="products.php">Product List</a>
+                  <a href="account_list.php">Account List</a>
+                  <a href="seller.php">Add Product</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn">Category</button>
+                <div class="dropdown-content">
+                  <a href="#">Asus</a>
+                  <a href="#">Dell</a>
+                  <a href="#">Acer</a>
+                  <a href="#">Macbook</a>
+                  <a href="#">Lenovo</a>
+                  <a href="#">Apple</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn">Account</button>
+                <div class="dropdown-content">
+                  <a href="sign_in.php">Sign In</a>
+                  <a href="sign_up.php">Sign Up</a>
+                </div>
+              </div>
+              <button class="headbtn" onclick="window.location.href='cart.php';"><i class="fa-solid fa-cart-shopping"></i></button>
             </ul>
         </div>
       </div>
@@ -36,14 +63,20 @@
   <!-- Main Section -->
   <main>
     <!-- Product Details Insert -->
-    <section class="insert-box">
+    <br>
       <div class="container">
+      <section class="insert-box">
         <form action="seller_upload.php" method="post" enctype="multipart/form-data">
           <br>
           <h1 class="text-center">Add Product</h1>
           <?php if (isset($_GET['message'])) { ?>
         <p class="container" style="border: 2px solid #00ff08; border-radius: 10px; padding:10px; backdrop-filter:blur(15px); color: #00ff08; background-color: rgba(0, 255, 106, 0.2);">
         <?php echo $_GET['message']; ?>
+        </p>
+        <?php } ?>
+        <?php if (isset($_GET['error'])) { ?>
+        <p class="container" style="border: 2px solid #00ff08; border-radius: 10px; padding:10px; backdrop-filter:blur(15px); color: #00ff08; background-color: rgba(0, 255, 106, 0.2);">
+        <?php echo $_GET['error']; ?>
         </p>
         <?php } ?>
             <div>
@@ -84,19 +117,33 @@
           <div class="col-lg-3">
             <label for="formFileMultiple" class="form-label">Add Product Image:</label>
             <input type="file" name="image" id="image" class="form-control " />
-          <!-- </div>  
+          </div>  
           <div class="d-flex justify-content-between">
           <div class="col-lg-1">
-          <label for="price">Category:</label>
+          <label for="price">Manufacturer:</label>
             <select name="category_id" class="form-select">
               <option value="">- Choose One -</option>
               <option value="1">Asus</option>
               <option value="2">Acer</option>
               <option value="3">Dell</option>
-              <option value="4">Macbook</option>
-              <option value="5">MSI</option>
+              <option value="4">MSI</option>
+              <option value="5">Apple</option>
+              <option value="6">Lenovo</option>
+              <option value="7">Gigabyte</option>
+              <option value="8">Alienware</option>
+              <option value="9">Graphics Laptop</option>
+              <option value="10">HP</option>
             </select>
-          </div> -->
+          </div>
+          <div class="col-lg-1">
+          <label for="price">Purpose:</label>
+            <select name="category" class="form-select">
+              <option value="">- Choose One -</option>
+              <option value="gaming">Gaming Laptop</option>
+              <option value="work">Office Laptop</option>
+
+            </select>
+          </div>
           <div class="spec-box">
             <div class="col-lg-2">
               <label for="price">Length:</label>
@@ -125,9 +172,8 @@
           <button type="submit" class="form-control add-prd-btn">Add Product</button>
         </form>
       </div>
-      
     </section>
-    
+    <br>
   </main>
 
   <!-- Footer Section -->

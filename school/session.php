@@ -1,15 +1,12 @@
 <?php
-    session_start();
-?>
-<?php
-    $con = new mysqli("localhost", "root", "", "c_1405");
+    $con = new mysqli("localhost", "root", "", "school");
     if ($con->connect_error) {
         echo "Connect Failed!";
     }
 
     $id = $_GET["id"];
 
-    $sqlDetail = "SELECT * FROM laptops WHERE id = $id";
+    $sqlDetail = "SELECT * FROM school WHERE id = $id";
 
     $result = $con->query($sqlDetail);
 
@@ -20,6 +17,7 @@
         }
     }
 
-    $_SESSION["cart"][$obj["id"]] = $obj;
+    $sess = $obj;
 
-    header("Location: product_detail.php?id=$id&info=Added to cart!");
+    $_SESSION["sess"] = $sess;
+    ?>

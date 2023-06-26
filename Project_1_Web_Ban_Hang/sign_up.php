@@ -10,46 +10,50 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="landing.css" type="text/css">
+  <link rel="stylesheet" href="landing.css" type="text/css">
   <link rel="stylesheet" href="header.css">
   <link rel="stylesheet" href="footer.css">
   <link rel="stylesheet" href="css/all.css">
-  <link rel="stylesheet" href="sidebar.css">
-  <link rel="stylesheet" href="slideshow.css">
-</head>
 
-<?php 
-    $conn = new mysqli("localhost", "root", "", "c_1405");
-    if ($conn->connect_error) {
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <?php 
+    $con = new mysqli("localhost", "root", "", "c_1405");
+    if ($con->connect_error) {
         die("Connection Error");
     }
-?>
-<body>
 
+    $sql = "SELECT * FROM laptops";
+    $result = $con->query($sql);
+?>
+</head>
+
+<body>
   <!-- Header Section -->
-  <header style="transform: translateY(-116%);">
+  <header>
       <div class="header">
         <div class="navbar">
           <img src="./img/logo.png" alt="AlphaFang" class="logo" onclick="window.location.href='landing.php';">
-            <?php if (isset($_GET['info'])) { ?>
-              <p class="info-mess" >
-            <?php echo $_GET['info']; ?>
-              </p>
-            <?php } ?>
-            <?php if (isset($_GET['message'])) { ?>
-              <p class="info-error">
-            <?php echo $_GET['message']; ?>
-              </p>
-            <?php } ?>
             <ul>
             <div class="dropdown">
                 <button class="dropbtn">Admin</button>
                 <div class="dropdown-content">
                   <a href="sign_in.php">Dashboard</a>
                   <a href="products.php">Product List</a>
-                  <a href="category_list.php">Category List</a>
-                  <a href="account_list.php">Account List</a>
                   <a href="seller.php">Add Product</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn">Category</button>
+                <div class="dropdown-content">
+                  <a href="#">Asus</a>
+                  <a href="#">Dell</a>
+                  <a href="#">Acer</a>
+                  <a href="#">Macbook</a>
+                  <a href="#">Lenovo</a>
+                  <a href="#">Apple</a>
                 </div>
               </div>
               <div class="dropdown">
@@ -64,31 +68,42 @@
         </div>
       </div>
   </header>
+
   <main>
-    <div class="container">
+    <div>
       <section class="formbox">
-        <h1 class="login_h1">Login</h1>
+        <h1 class="login_h1">Register</h1>
         <?php if (isset($_GET['error'])) { ?>
           <p class="error" style="border: 2px solid red; border-radius: 10px; padding:10px; backdrop-filter:blur(15px); color: #ff0000;">
           <?php echo $_GET['error']; ?>
           </p>
         <?php } ?>
       <div> 
-        <form action="login.php" method="post">
+        <form action="register.php" method="post">
         <div class="txt_field">
-          <input type="text" required onInvalid ="setCustomValidity('Please enter your username')" name="username">
+          <input type="text" required onInvalid ="setCustomValidity('Please enter your username!')" name="username">
           <span></span>
           <label><i class="fa-solid fa-user"></i> Username</label>
         </div>
         <div class="txt_field">
-          <input type="password" required name="password" onInvalid ="setCustomValidity('Please enter your password')">
+          <input type="text" required onInvalid ="setCustomValidity('Please enter your Email!')" name="email">
+          <span></span>
+          <label><i class="fa-solid fa-envelope"></i> Email</label>
+        </div>
+        <div class="txt_field">
+          <input type="text" required onInvalid ="setCustomValidity('Please enter your phone number!')" name="phone_num">
+          <span></span>
+          <label><i class="fa-solid fa-mobile-screen-button"></i> Phone</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" required name="password" onInvalid ="setCustomValidity('Please enter your password!')">
           <span></span>
           <label><i class="fa-solid fa-lock"></i> Password</label>
         </div>
 
-        <input type="submit" value="Login">
+        <input type="submit" value="Register">
         <div class="signup_link">
-          Not a member? <a href="#">Register.</a>
+          Already a member? <a href="sign_in.php">Login Here.</a>
                   <div class="pass">Forgot Password?</div>
         </div>
         </form>

@@ -60,59 +60,70 @@
         </div>
       </div>
   </header>
-<!-- 
-  <div class='img-holder'>
-                    <img src='upload/".$obj["image"]."' alt='product' class='product_img'>
-                  </div> -->
-<!-- Main Section -->
+
   <main>
 
     <div>
-    <?php
-    $obj = null;
-        if ($result-> num_rows> 0 ) {
-            while ($row = $result->fetch_assoc()) {
-              $obj = $row;
-                echo "
-                <div class='container'>
-                  <h1 class='prd-name'>".$obj["name"]." (".$obj["ram"]." GB | ".$obj["card"]." | ".$obj["cpu"].")</h1>
-                  <div class='product'>
-                    <div class='product_info'>
-                      <div class='img-holder'>
-                        <img src='upload/".$obj["image"]."' alt='product' class='product_img'>
-                      </div>
-                      <div class='product_detail'>
-                        <br>
-                        <h3>Device Information</h3>
-                        <ul>
-                        <li>Product Name: ".$obj["name"]."</li>
-                        <li>RAM: ".$obj["ram"]." GB</li>
-                        <li>ROM: ".$obj["rom"]." GB</li>
-                        <li>VGA: ".$obj["card"]."</li>
-                        <li>CPU: ".$obj["cpu"]."</li>
-                        <li>Screen Resolution: ".$obj["screen_resolution"]."
-                        </ul>
-                        <h2 class='price'>Price: ".$obj["price"]."$</h2>
+      <br>
+      <div class="container">
+        <div class="container">
+          <?php if (isset($_GET['info'])) { ?>
+            <p style="border: 2px solid #00ff08; border-radius: 10px; padding:10px; backdrop-filter:blur(15px); color: #00ff08;">
+          <?php echo $_GET['info']; ?>
+            </p>
+          <?php } ?>
+        </div>
+      </div>
+      <?php
+      $obj = null;
+          if ($result-> num_rows> 0 ) {
+              while ($row = $result->fetch_assoc()) {
+                $obj = $row;
+                  echo "
+                  <div class='container'>
+                    <div class='container'>
+                    <a href='landing.php'>Home</a> > <a href='product.php'>Product</a> > <a href='#'>".$obj["name"]."</a>
+                    <br>
+                    </div>
+                    <br>
+                    <h1 class='prd-name'>".$obj["name"]." (".$obj["ram"]." GB | ".$obj["card"]." | ".$obj["cpu"].")</h1>
+                    <h6 class='prd-name text-center'>Product ID: ".$obj["id"]."</h6>
+                    <div class='product'>
+                      <div class='product_info'>
+                        <div class='img-holder'>
+                          <img src='upload/".$obj["image"]."' alt='product' class='product_img'>
+                        </div>
+                        <div class='product_detail'>
+                          <br>
+                          <h3>Device Information</h3>
+                          <ul>
+                          <li>Product Name: ".$obj["name"]."</li>
+                          <li>RAM: ".$obj["ram"]." GB</li>
+                          <li>ROM: ".$obj["rom"]." GB</li>
+                          <li>VGA: ".$obj["card"]."</li>
+                          <li>CPU: ".$obj["cpu"]."</li>
+                          <li>Screen Resolution: ".$obj["screen_resolution"]."
+                          </ul>
+                          <h2 class='price'>Price: ".$obj["price"]."$</h2>
 
-                        <div class='cart-btn'>
-                            <button class='btn_add_cart'><a href='product_cart.php?id=<?php echo ".$obj["id"].";?>' >Add To Cart</a>
+                          <div class='cart-btn'>
+                          <a href='product_cart.php?id=".$obj["id"]."'><button class='btn_add_cart'>Add To Cart</button></a>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   
-                </div>
-                
-                <div class='container'>
-                <div class='product_desc'>
-                <h1 class='text-gra'>About This Product</h1>
-                  <p>".$obj["descriptions"]."</p>
-                  </div>
-                </div>";
-            }
-        };    
-    ?>
+                  <div class='container'>
+                  <div class='product_desc'>
+                  <h1 class='text-gra'>About This Product</h1>
+                    <p>".$obj["descriptions"]."</p>
+                    </div>
+                  </div>";
+              }
+          };    
+      ?>
     </div>
     <br>
 

@@ -34,7 +34,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['name'] = $row['name'];
                 $_SESSION['id'] = $row['id'];
-                header("Location: landing.php?info=Logged in successfully");
+                header("Location: landing.php?info=Logged in successfully as <b style='color:yellow;text-weight:700;'><i>$name</i></b>");
                 exit();
             }else{
                 header("Location: sign_in.php?error=Incorrect Username or password");
