@@ -14,7 +14,7 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="landing.css" type="text/css">
+<link rel="stylesheet" href="landing.css"">
   <link rel="stylesheet" href="header.css">
   <link rel="stylesheet" href="footer.css">
   <link rel="stylesheet" href="css/all.css">
@@ -130,41 +130,30 @@
       </table>
       <!-- Confirm Buy -->
       <h1 class="text-gra text-lg-center">Confirm Buy</h1>
-      <form action="">
-        <?php
+      <form action="" method="post" >
+      <?php
           if($carts != null) {
             foreach ($carts as $cart) {
-              echo '<input type="show" name="id" value="'.$cart["id"].'" >';
+              echo '<input type="show" name="id" id="ids" value="'.$cart["id"].'" >';
+              echo '<input type="show" name="prices" id="prices" value="'.$cart["price"].'" >';
               }
             }
         ?>
-      </form>
-        <form action="order_save.php" method="post">
-        ID:
-        <input type="text" name="ids" id="ids" value="" >
-        Name:
-        <input type="text" name="fullName" id="fullName" value="" >
-        Phone:
-        <input type="text" name="phone" id="phone" value="" >
-        Address:
-        <input type="text" name="address" id="address" value="" >
-        <div class="container" >
-        <button type="submit" class="btn-see">Buy</button>
-          </div>
         </form>
-
-<script>
-    // $(function () {
-    //     $("#order").click(function () {
-    //         var ids = new Array();
-    //         $("input[name=id]").each(function() {
-    //             ids.push($(this).val());
-    //         });
-    //         alert(ids);
-    //         location.href = "order_save.php?ids=" + ids;
-    //     });
-    // });
-</script>
+        <div class="container" >
+        <button type="submit" class="btn-see" id="order">Buy</button>
+          </div>
+        <script>
+          $(function () {
+              $("#order").click(function () {
+                  var ids = new Array();
+                  $("input[name=id]").each(function() {
+                      ids.push($(this).val());
+                  });
+                  location.href = "order_save.php?ids=" + ids;
+              });
+          });
+        </script>
 
     </div>
   </main>

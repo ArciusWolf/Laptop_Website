@@ -19,9 +19,10 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="landing.css" type="text/css">
+  <link rel="stylesheet" href="landing.css"">
   <link rel="stylesheet" href="product.css">
   <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="css/all.css">
 
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
@@ -35,32 +36,31 @@
       <div class="header">
         <div class="navbar">
           <img src="./img/logo.png" alt="AlphaFang" class="logo" onclick="window.location.href='landing.php';">
+          <h1 ><a href="#" class="header-h1">AlphaFang Store</a></h1>
             <ul>
-              <div class="dropdown">
-                <button class="dropbtn">Category</button>
+            <div class="dropdown">
+                <button class="dropbtn">Admin</button>
                 <div class="dropdown-content">
-                  <a href="#">Asus</a>
-                  <a href="#">Dell</a>
-                  <a href="#">Acer</a>
-                  <a href="#">Macbook</a>
-                  <a href="#">Lenovo</a>
-                  <a href="#">Apple</a>
+                  <a href="sign_in.php">Dashboard</a>
+                  <a href="products.php">Product List</a>
+                  <a href="category_list.php">Category List</a>
+                  <a href="account_list.php">Account List</a>
+                  <a href="seller.php">Add Product</a>
+                  <a href="order_detail.php">Orders</a>
                 </div>
               </div>
               <div class="dropdown">
                 <button class="dropbtn">Account</button>
                 <div class="dropdown-content">
-                  <a href="#">Sign In</a>
-                  <a href="#">Sign Up</a>
+                  <a href="sign_in.php">Sign In</a>
+                  <a href="sign_up.php">Sign Up</a>
                 </div>
               </div>
-              <button class="headbtn" onclick="window.location.href='sign_in.html';">Sign In</button>
-              <button class="headbtn" onclick="window.location.href='cart.php';">Cart</button>
+              <button class="headbtn" onclick="window.location.href='cart.php';"><i class="fa-solid fa-cart-shopping"></i></button>
             </ul>
         </div>
       </div>
   </header>
-
   <main>
 
     <div>

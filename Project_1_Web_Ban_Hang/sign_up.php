@@ -10,7 +10,7 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="landing.css" type="text/css">
+  <link rel="stylesheet" href="landing.css"">
   <link rel="stylesheet" href="header.css">
   <link rel="stylesheet" href="footer.css">
   <link rel="stylesheet" href="css/all.css">
@@ -32,7 +32,7 @@
 
 <body>
   <!-- Header Section -->
-  <header>
+  <header style="transform: translateY(-116%)">
       <div class="header">
         <div class="navbar">
           <img src="./img/logo.png" alt="AlphaFang" class="logo" onclick="window.location.href='landing.php';">
@@ -85,6 +85,12 @@
           <span></span>
           <label><i class="fa-solid fa-user"></i> Username</label>
         </div>
+        <div>
+        <div class="txt_field">
+          <input type="text" required onInvalid ="setCustomValidity('Please enter your Name!')" name="fullName">
+          <span></span>
+          <label><i class="fa-solid fa-file-signature"></i> Full Name</label>
+        </div>
         <div class="txt_field">
           <input type="text" required onInvalid ="setCustomValidity('Please enter your Email!')" name="email">
           <span></span>
@@ -99,6 +105,11 @@
           <input type="password" required name="password" onInvalid ="setCustomValidity('Please enter your password!')">
           <span></span>
           <label><i class="fa-solid fa-lock"></i> Password</label>
+        </div>
+        <div class="txt_field">
+          <input type="address" required "address" onInvalid ="setCustomValidity('Please enter your Address!')">
+          <span></span>
+          <label><i class="fa-solid fa-map-location-dot"></i> Address</label>
         </div>
 
         <input type="submit" value="Register">

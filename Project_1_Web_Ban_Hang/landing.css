@@ -80,7 +80,7 @@ body {
 
 .formbox {
     width: 500px;
-    height: 500px;
+    height: 700px;
     background-color: rgba(20, 20, 20, 0.2);
     box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
     backdrop-filter: blur(10px);

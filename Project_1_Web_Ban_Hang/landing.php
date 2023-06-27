@@ -68,6 +68,7 @@
                   <a href="category_list.php">Category List</a>
                   <a href="account_list.php">Account List</a>
                   <a href="seller.php">Add Product</a>
+                  <a href="order_detail.php">Orders</a>
                 </div>
               </div>
               <div class="dropdown">
