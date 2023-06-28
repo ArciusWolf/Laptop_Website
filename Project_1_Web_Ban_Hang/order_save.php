@@ -44,10 +44,6 @@ $con = new mysqli("localhost", "root", "", "c_1405");
 
     $arrId = explode(",", $ids);
 
-    // count every laptop price in cart
-
-// count and explode every laptop price in cart
-
     $arrPrice = array();
     foreach ($arrId as $id) {
         $sqlPrice = "SELECT * FROM laptops WHERE id = '$id'";
@@ -56,14 +52,6 @@ $con = new mysqli("localhost", "root", "", "c_1405");
         $price = $row["price"];
         array_push($arrPrice, $price);
     }
-
-    $arrPrice1 = implode(",", $arrPrice);
-
-    $arrPrice2 = explode(",", $arrPrice1);
-
-    // var_export($arrId);
-
-
     // count total price
     $totalPrice = 0;
     foreach ($arrPrice as $price) {
@@ -74,25 +62,24 @@ $con = new mysqli("localhost", "root", "", "c_1405");
     $sqlOrderDetail = "";
     $sqlOrderDetail .= "INSERT INTO order_details (order_id, laptop_id, price, quantity, total) VALUES ";
 
+// count id and price and insert into order_details table
+for ($i = 0; $i < count($arrId); ++$i) {
+    for ($j = 0; $j < count($arrPrice); $j++) {
+// check if $i == $j and $i != count($arrId) - 1
+        if ($i == $j && $i != count($arrId) - 1) {
+            $sqlOrderDetail .= "('".$insertID."', '".$arrId[$i]."', '".$arrPrice[$j]."', 1, '$totalPrice'),";
+        } else if ($i == $j && $i == count($arrId) - 1) {
+            $sqlOrderDetail .= "('".$insertID."', '".$arrId[$i]."', '".$arrPrice[$j]."', 1, '$totalPrice')";
+        }
+            
 
+        
+    // if (count($arrId) == count($arrPrice2)) {
 
-    for ($i = 0; $i < count($arrId); ++$i) {
-            if ($i != count($arrId) - 1){
-            $sqlOrderDetail .= "('".$insertID."', '".$arrId[$i]."', '$arrPrice1', 1, '$totalPrice'),";
-        } else
-            $sqlOrderDetail .= "('".$insertID."', '".$arrId[$i]."', '$arrPrice1', 1, '$totalPrice')";
-        };
     };
-    for ($y = 0; $y < count($arrPrice2); ++$y) {
-        if ($y != count($arrPrice2) - 1){
-        $sqlOrderDetail .= "('".$insertID."', '".$arrPrice2[$y]."', 1, '$totalPrice'),";
-    } else
-        $sqlOrderDetail .= "('".$insertID."', '".$arrPrice2[$y]."', 1, '$totalPrice')";
     };
-    $sqlOrderDetail .= ";";
+    };
 
-    var_export($sqlOrderDetail);
-    die();
     $con->query($sqlOrderDetail);
     header("location:cart.php");
 ?>

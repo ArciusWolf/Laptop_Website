@@ -77,40 +77,90 @@
           <table class="table table-bordered table-hover table-dark table-responsive">
             <thead>
                 <tr class="table-warning">
-                <th>Order ID</th>
+                <td>Order ID</td>
                 <th>Order Date</th>
                 <th>Customer Name</th>
-                <th>Customer Email</th>
                 <th>Customer Phone</th>
                 <th>Customer Address</th>
-                <th>Product Name</th>
                 <th>Product Price</th>
                 <th>Quantity</th>
                 <th>Total</th>
               </tr>
             </thead>
             <tbody>
+              <!-- show order detail and Status with colspan = 10 -->
               <?php
-              $result = $con->query($sql);
-              if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-              ?>
-                  <tr>
-                    <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['date_buy']; ?></td>
-                    <td><?php echo $row['customerName']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['phone']; ?></td>
-                    <td><?php echo $row['address']; ?></td>
-                    <td><?php echo $row['laptop_id']; ?></td>
-                    <td><?php echo $row['price']; ?></td>
-                    <td><?php echo $row['quantity']; ?></td>
-                    <td><?php echo $row['total']; ?></td>
-                  </tr>
-              <?php
-                }
-              }
-              ?>
+                $result = $con->query($sql);
+                if ($result->num_rows > 0) {
+                  while ($row = $result->fetch_assoc()) {
+                    ?>
+              <tr>
+                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['date_buy']; ?></td>
+                <td><?php echo $row['customerName']; ?></td>
+                <td><?php echo $row['phone']; ?></td>
+                <td><?php echo $row['address']; ?></td>
+                <td><?php echo $row['price']; ?>$</td>
+                <td><?php echo $row['quantity']; ?></td>
+                <td><?php echo $row['total']; ?>$</td>
+              </tr>
+              <tr>
+                <td colspan="6">
+                  Order Status: <?php echo $row['states']; ?>
+                </td>
+                <td colspan="2">
+                  <?php
+                      if ($row['states'] == "Pending") {
+                        echo '
+                        <form action="order_update.php" method="post">
+                        <input type="text" name="id" value='.$row["id"].'>
+                        <select name="states" id="states">
+                          <option value="Cancel">Cancel</option>
+                          <option value="Shipping" disabled>Shipping</option>
+                          <option value="Received" disabled>Received</option>
+                          <option value="Confirm">Confirm</option>
+                        </select>
+                        <button type="submit" name="update">Update</button>';
+                      } else {
+                        if ($row['states'] == "Confirmed") {
+                          echo '
+                          <form action="order_update.php" method="post">
+                          <input type="hidden" name="id" value='.$row["id"].'>
+                          <select name="states" id="states" class="form-select">
+                            <option value="Shipping">Shipping</option>
+                            <option value="Received" disabled>Received</option>
+                            <option value="Confirmed">Confirmed</option>
+                          </select>
+                          <button type="submit" name="update" class="btn-see">Update</button>';
+                        } else {
+                          if ($row['states'] == "Received") {
+                            echo '
+                            <form action="order_update.php" method="post">
+                            <input type="text" name="id" value='.$row["id"].'>
+                            <select name="states" id="states">
+                              <option value="Received">Received</option>
+                              <option value="Confirmed">Confirmed</option>
+                            </select>
+                            <button type="submit" name="update">Update</button>';
+                          } else {
+                            if ($row['states'] == "Confirmed") {
+                              echo '
+                              <form action="order_update.php" method="post">
+                              <input type="text" name="id" value='.$row["id"].'>
+                              <select name="states" id="states">
+                                <option value="Confirmed">Confirmed</option>
+                              </select>
+                              <button type="submit" name="update">Update</button>';
+                            }
+                          }
+                        }
+                      }
+                        }
+                      }
+                  ?>
+                </td>
+              </tr>
+
             </tbody>
           </table>
         </div>
