@@ -120,18 +120,19 @@
                           <option value="Received" disabled>Received</option>
                           <option value="Confirm">Confirm</option>
                         </select>
-                        <button type="submit" name="update">Update</button>';
+                        <button type="submit" name="update" class="btn-success">Update</button>';
                       } else {
                         if ($row['states'] == "Confirmed") {
                           echo '
                           <form action="order_update.php" method="post">
                           <input type="hidden" name="id" value='.$row["id"].'>
-                          <select name="states" id="states" class="form-select">
-                            <option value="Shipping">Shipping</option>
+                          <select name="states" id="states" class="form-select-sm">
+                            <option value="Cancelled">Cancel Order</option>
+                            <option value="On Shipment">Deliver</option>
                             <option value="Received" disabled>Received</option>
                             <option value="Confirmed">Confirmed</option>
                           </select>
-                          <button type="submit" name="update" class="btn-see">Update</button>';
+                          <button type="submit" name="update">Update</button>';
                         } else {
                           if ($row['states'] == "Received") {
                             echo '
