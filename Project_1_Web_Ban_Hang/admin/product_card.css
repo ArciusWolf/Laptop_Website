@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+.card {
+    border: 2px solid #747474;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    margin-top: 30px;
+    margin-right: 30px;
+    background-color: rgb(255, 255, 255);
+    backdrop-filter: blur(15px);
+    padding: 10px;
+    height: 350px;
+    width: 250px;
+    max-width: 250px;
+    max-height: 350px;
+    overflow: hidden;
+    text-align: center;
+}
+
+
+.card-body {
+    padding: 0;
+}
+
+.card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #292929;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: #bc0000;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.card-img-top {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.card_overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+    background: linear-gradient(45deg, rgba(122, 107, 0, 0.5),rgba(0, 0, 0, 0.5), rgb(60, 0, 255, 0.5)); 
+	color: #ffbf00;
+    font-weight: 700;
+    font-size: 13px;
+	font-family: 'Quicksand', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.25s;
+}
+
+.card_overlay--blur {
+	backdrop-filter: blur(5px);
+}
+
+.card_overlay>* {
+	transform: translateY(20px);
+	transition: transform 0.25s;
+}
+
+.card_overlay:hover {
+	opacity: 1;
+}
+
+.card_overlay:hover>* {
+	transform: translateY(0);
+}
+
+.card_description {
+    /* color: #bc0000;
+    font-family: Poppins, sans-serif;
+	font-size: 10px;
+    padding: 3px; */
+}
+
+.img-overlay img {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.ul-btn {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.li-btn {
+    padding: 5px;
+    transform: translateX(-18%);
+}

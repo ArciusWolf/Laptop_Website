@@ -1,0 +1,21 @@
+.btn-update {
+    background-color: transparent;
+    border-color: #eea236;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #eea236;
+    border-radius: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: all .3s ease-in-out;
+}
+
+.btn-update:hover {
+    background-color: #eea236;
+    color: #fff;
+}

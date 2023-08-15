@@ -10,12 +10,12 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="landing.css" type="text/css">
-  <link rel="stylesheet" href="header.css">
-  <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="./css/landing.css" type="text/css">
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/footer.css">
   <link rel="stylesheet" href="css/all.css">
-  <link rel="stylesheet" href="sidebar.css">
-  <link rel="stylesheet" href="slideshow.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/slideshow.css">
 </head>
 
 <?php 

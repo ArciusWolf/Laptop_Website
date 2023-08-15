@@ -14,9 +14,9 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-<link rel="stylesheet" href="landing.css"">
-  <link rel="stylesheet" href="header.css">
-  <link rel="stylesheet" href="footer.css">
+<link rel="stylesheet" href="css/landing.css"">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/all.css">
   <link rel="stylesheet" href="sidebar.css">
   <link rel="stylesheet" href="slideshow.css">
@@ -41,14 +41,13 @@
       <div class="header">
         <div class="navbar">
           <img src="./img/logo.png" alt="AlphaFang" class="logo" onclick="window.location.href='landing.php';">
-          <h1 ><a href="#" class="header-h1">AlphaFang Store</a></h1>
             <?php if (isset($_GET['info'])) { ?>
               <p class="info-mess" >
             <?php echo $_GET['info']; ?>
               </p>
             <?php } ?>
             <?php if (isset($_GET['message'])) { ?>
-              <p class="info-error">
+              <p class="info-mess">
             <?php echo $_GET['message']; ?>
               </p>
             <?php } ?>
@@ -134,8 +133,8 @@
       <?php
           if($carts != null) {
             foreach ($carts as $cart) {
-              echo '<input type="show" name="id" id="ids" value="'.$cart["id"].'" >';
-              echo '<input type="show" name="prices" id="prices" value="'.$cart["price"].'" >';
+              echo '<input type="hidden" name="id" id="ids" value="'.$cart["id"].'" >';
+              echo '<input type="hidden" name="prices" id="prices" value="'.$cart["price"].'" >';
               }
             }
         ?>
@@ -150,7 +149,7 @@
                   $("input[name=id]").each(function() {
                       ids.push($(this).val());
                   });
-                  location.href = "order_save.php?ids=" + ids;
+                  location.href = "./order_details/order_save.php?ids=" + ids;
               });
           });
         </script>
