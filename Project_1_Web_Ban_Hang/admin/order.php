@@ -7,6 +7,7 @@
     <title>AlphaFang Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="admin.css" />
+    <link rel="stylesheet" href="../css/popup.css" />
     <!-- <link rel="stylesheet" href="../css/landing.css" type="text/css">
   <link rel="stylesheet" href="../css/all.css"> -->
     <link flex href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
@@ -43,16 +44,18 @@
     if ($con->connect_error) {
       die("Connection Error");
     }
-// select orders
-    $sql = "SELECT * FROM orders";
+// select orders and price from order_details table
+    $sql = "SELECT orders.id, orders.date_buy, orders.states, orders.customerName, orders.phone, orders.address, order_details.total FROM orders left join order_details on orders.id = order_details.order_id group by orders.id";
+
     ?>
+
   </head>
   <body>
     <!-- sidebar -->
     <nav class="sidebar locked">
       <div class="logo_items flex">
         <span class="nav_image">
-          <img src="images/logo.png" alt="logo_img" />
+          <img src="../img/logo.png" alt="logo_img" />
         </span>
         <span class="logo_name">AlphaFang</span>
       </div>
@@ -64,12 +67,7 @@
               <span class="title">Dashboard</span>
               <span class="line"></span>
             </div>
-            <li class="item">
-              <a href="admin.php" class="link flex">
-                <i class="bx bx-home-alt"></i>
-                <span>Overview</span>
-              </a>
-            </li>
+
             <li class="item">
               <a href="product_list.php" class="link flex">
                 <i class="bx bx-grid-alt"></i>
@@ -90,15 +88,15 @@
               <span class="line"></span>
             </div>
             <li class="item">
-              <a href="add-product.php" class="link flex">
+              <a href="product_add.php" class="link flex">
                 <i class="bx bx-cloud-upload"></i>
                 <span>Upload Product</span>
               </a>
             </li>
             <li class="item">
-              <a href="edit_product.php" class="link flex">
+              <a href="user_manager.php" class="link flex">
                 <i class="bx bxs-edit"></i>
-                <span>Edit Product</span>
+                <span>User Manager</span>
               </a>
             </li>
             <li class="item">
@@ -115,22 +113,17 @@
               <span class="line"></span>
             </div>
             <li class="item">
-              <a href="landing.php" class="link flex">
-                <i class="bx bx-cog"></i>
+              <a href="../landing.php" class="link flex">
+                <i class="bx bx-arrow-from-right"></i>
                 <span>Back To Store</span>
               </a>
             </li>
           </ul>
         </div>
-
-        <div class="sidebar_profile flex">
-          <div class="data_text">
-            <span class="name">AlphaFang Studio</span>
-          </div>
-        </div>
       </div>
     </nav>
     <!-- sidebar end -->
+    
     <div class="container" style="width: 1200px; transform: translateX(11%)">
       <div class="row">
         <div class="col-12">
@@ -139,6 +132,7 @@
             <thead>
                 <tr class="table table-warning table-bordered">
                 <td>Order ID</td>
+                <td>Total Price</td>
                 <th>Order Status</th>
                 <th>Order Date</th>
                 <th>Customer Name</th>
@@ -154,7 +148,9 @@
                 foreach ($result as $row) {
                     ?>
               <tr>
-                <td><?php echo $row['id']; ?></td>
+
+                <td><button class="btn btn-success" onclick="location.href='order_product.php?id=<?php echo $row['id']?>'"><?php echo $row['id']; ?></button></td>
+                <td><?php echo $row['total']; ?>$</td>
                 <td><?php if ($row['states'] == "Pending") {
                 echo '<b><p style="color: #e6cf00;"><i> '.$row["states"].'</p></i></b>'; 
                 } else {
@@ -242,5 +238,16 @@
         </div>
       </div>
     </div>
+
+    <script>
+        let popup = document.getElementById("popup");
+
+        function openPopup(){
+            popup.classList.add("open-popup");
+        }
+        function closePopup(){
+            popup.classList.remove("open-popup");
+        }
+    </script>
   </body>
 </html>

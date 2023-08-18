@@ -11,9 +11,9 @@
     $address = $_POST["address"];
     $fullname = $_POST["fullName"];
 //  SQL Query Command
-    $sql = "INSERT INTO accounts ( username, email, phone_num, password, name, address)
+    $sql = "INSERT INTO accounts ( username, email, phone_num, password, name, address, admin)
     VALUES
-    ('$username', '$email', '$phone_num', '$password', '$fullname', '$address')";
+    ('$username', '$email', '$phone_num', '$password', '$fullname', '$address', '0')";
 
     if($con->query($sql) === TRUE){
         header("Location:landing.php?message=Account created successfully, please login.");

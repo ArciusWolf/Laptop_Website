@@ -30,8 +30,10 @@
     $acc_result = $con->query($acc);
   ?>
   <?php
-  // select laptops, orders and order_details from database
-  $sql = "SELECT * FROM laptops, orders, order_details, accounts WHERE laptops.id = order_details.laptop_id AND orders.id = order_details.order_id AND accounts.username = '$username'";
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
+// select order and order details from current logged in username
+$sql = "SELECT orders.id, orders.date_buy, orders.states, order_details.quantity, order_details.price, laptops.name, laptops.image FROM orders INNER JOIN order_details ON orders.id = order_details.order_id INNER JOIN laptops ON order_details.laptop_id = laptops.id WHERE orders.phone = '$phone' AND orders.email = '$email'";
   ?>
 </head>
 
@@ -39,7 +41,7 @@
 <header>
       <div class="header">
         <div class="navbar">
-          <img src="../img/logo.png" alt="AlphaFang" class="logo" onclick="window.location.href='landing.php';">
+          <img src="../img/logo.png" alt="AlphaFang" class="logo" onclick="window.location.href='../landing.php';">
           <h1 ><a href="#" class="header-h1">AlphaFang Store</a></h1>
             <?php if (isset($_GET['info'])) { ?>
               <p class="info-mess" >
@@ -103,17 +105,19 @@ if ($acc_result->num_rows > 0) {
   </header>
 
   <main>
-  <h1 class="text-gra">Your Order</h1>
+  <h1 class="text-gra text-center">Your Order</h1>
   <div class="container">
   <table class="table table-dark table-hover">
     <thead>
       <tr>
-        <th scope="col">Order ID</th>
+        <th scope="col-lg-2">Order ID</th>
+        <th scope="col-lg-2"></th>
         <th scope="col">Product Name</th>
         <th scope="col">Quantity</th>
         <th scope="col">Total Price</th>
         <th scope="col">Order Date</th>
         <th scope="col">Status</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -123,13 +127,46 @@ if ($acc_result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
               echo '
               <tr>
-                <th scope="row">' . $row["order_id"] . '</th>
+                <th scope="row">' . $row["id"] . '</th>
+                <td><img src="../upload/' . $row["image"] . '" alt="laptop" width="100px" height="100px"></td>
                 <td>' . $row["name"] . '</td>
                 <td>' . $row["quantity"] . '</td>
-                <td>' . $row["price"] . '</td>
-                <td>' . $row["date_buy"] . '</td>
-                <td>' . $row["states"] . '</td>
+                <td>' . $row["price"] . '$</td>
+                <td>' . $row["date_buy"] . '</td>';
+              if ($row['states'] == "Pending") {
+                  echo '<td><b><p style="color: #e6cf00;"><i> '.$row["states"].'</p></i></b></td>'; 
+                  } else {
+                    if ($row['states'] == "On Shipment") {
+                      echo '<td><b><p style="color: #00a8e6;"><i> '.$row["states"].'</p></i></b></td>'; 
+                    } else {
+                      if ($row['states'] == "Received") {
+                        echo '<td><b><p style="color: #00e600;"><i> '.$row["states"].'</p></i></b></td>'; 
+                      } else {
+                        if ($row['states'] == "Cancelled") {
+                          echo '<td><b><p style="color: #e60000;"><i> '.$row["states"].'</p></i></b></td>'; 
+                        } else {
+                          if ($row['states'] == "Confirmed") {
+                            echo '<td><b><p style="color: #00e600;"><i> '.$row["states"].'</p></i></b></td>'; 
+                          }}}}}
+              echo '</tr>';
+             
+          }
+          // count total price
+          $total = "SELECT SUM(price) AS total FROM order_details INNER JOIN orders ON order_details.order_id = orders.id WHERE orders.customerName = 'Customer'";
+          $total_result = $con->query($total);
+          if ($total_result->num_rows > 0) {
+            while ($row = $total_result->fetch_assoc()) {
+              echo '
+              <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td>Total: </td>
+                <td>' . $row["total"] . '</td>
+                <td></td>
+                <td></td>
               </tr>';
+            }
           }
       }
       ?>

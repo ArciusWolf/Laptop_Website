@@ -47,7 +47,6 @@
 
 <body>
   <!-- Header Section -->
-  
   <header>
       <div class="header">
         <div class="navbar">
@@ -65,7 +64,6 @@
             <?php } ?>
 
             <ul>
-              
               <?php
 // check if user is admin
 if ($acc_result->num_rows > 0) {
@@ -75,11 +73,7 @@ if ($acc_result->num_rows > 0) {
           <div class="dropdown">
               <button class="dropbtn">Admin</button>
               <div class="dropdown-content">
-                <a href="admin.php">Dashboard</a>
-                <a href="category_list.php">Category List</a>
-                <a href="account_list.php">Account List</a>
-                <a href="seller.php">Add Product</a>
-                <a href="./order_details/order_detail.php">Orders</a>
+                <a href="./admin/product_list.php">Dashboard</a>
               </div>
             </div>';
         }}}
@@ -90,8 +84,7 @@ if ($acc_result->num_rows > 0) {
                 <div class="dropdown">
                   <button class="dropbtn">Order</button>
                   <div class="dropdown-content">
-                    <a href="./order_details/order_customer.php">Your Order</a>
-                    <a href="sign_in.php">Search Order</a>
+                    <a href="./order_details/order_search.php">Your Order</a>
                   </div></div>
                     <div class="dropdown">
                       <button class="dropbtn">Account</button>
@@ -105,16 +98,14 @@ if ($acc_result->num_rows > 0) {
               <div class="dropdown-content">
                 <a href="sign_up.php">Register</a>
                 <a href="sign_in.php">Login</a>
-                    
                 <?php
                   }
                 ?>
               </div></div>
-            <button class="headbtn" onclick="window.location.href='cart.php';"><i class="fa-solid fa-cart-shopping"></i></button>
+            <button class="headbtn" onclick="window.location.href='cart.php';"><i class="fa-solid fa-cart-shopping"> Cart</i></button>
           </ul>
         </div></div>
   </header>
-
 <!-- Main Section -->
   <main>
     <!-- sidebar -->

@@ -51,7 +51,7 @@ if (isset($_POST["name"])) {
     } else {
         echo "<br> File upload failed";
     }if($con->query($sql) === TRUE){
-        header("Location:add-product.php?message=Product added successfully");
+        header("Location:product_add.php?message=Product added successfully");
     } else {
         header("Location:add-product.php?error=Insert Error").$con->error;;
         }

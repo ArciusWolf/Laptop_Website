@@ -111,7 +111,8 @@
               echo '<td>'.$cart["ram"].'GB</td>';
               echo '<td>'.$cart["rom"].'</td>';
               echo '<td>'.$cart["price"].'$</td>';
-              echo '<td colspan="5"><a href="cart.php?id='.$cart["id"].'"><i class="fas fa-trash-alt"></i></a></td>';
+// delete a product in cart
+              echo '<td><a href="cart_delete.php?id='.$cart["id"].'"><i class="fa-solid fa-trash"></i></a></td>';
               echo '</tr>';
                 }
               }
@@ -128,8 +129,8 @@
         </tbody>
       </table>
       <!-- Confirm Buy -->
-      <h1 class="text-gra text-lg-center">Confirm Buy</h1>
-      <form action="" method="post" >
+      <h1 class="text-gra text-lg-center">Proceed To Checkout</h1>
+      <form action="order_details/order_save.php" method="post">
       <?php
           if($carts != null) {
             foreach ($carts as $cart) {
@@ -138,22 +139,8 @@
               }
             }
         ?>
-        </form>
-        <div class="container" >
-        <button type="submit" class="btn-see" id="order">Buy</button>
-          </div>
-        <script>
-          $(function () {
-              $("#order").click(function () {
-                  var ids = new Array();
-                  $("input[name=id]").each(function() {
-                      ids.push($(this).val());
-                  });
-                  location.href = "./order_details/order_save.php?ids=" + ids;
-              });
-          });
-        </script>
-
+      </form>
+        <button type="submit" class="btn-see" id="order"><a href=cart_info.php>Proccess To Order</a></button>
     </div>
   </main>
   <footer>

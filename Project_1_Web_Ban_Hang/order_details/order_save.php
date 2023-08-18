@@ -3,7 +3,6 @@
 
     $cart = $_SESSION["cart"];
 
-
     $username = "";
     if (isset($_SESSION["username"])) {
         $username = $_SESSION["username"];
@@ -13,6 +12,7 @@
         header("Location: sign_in.php?error=You need to login first");
         exit();
     }
+
 ?>
 
 <?php
@@ -30,10 +30,11 @@
     $sqlCustomer = "SELECT * FROM accounts WHERE username = '$username' ";
     $result = $con->query($sqlCustomer);
     $row = $result->fetch_assoc();
-    $fullName = $row["name"];
-    $phone = $row["phone_num"];
-    $address = $row["address"];
-    $email = $row["email"];
+
+    $fullName = $_SESSION["name"];
+    $phone = $_SESSION["phone"];
+    $address = $_SESSION["address"];
+    $email = $_SESSION["email"];
 
     $sql = "INSERT INTO orders (customerName, phone, address, date_buy, states, email) VALUES ('$fullName', '$phone', '$address', '$date', 'Pending', '$email')";
     $con->query($sql);

@@ -107,7 +107,7 @@
           <label><i class="fa-solid fa-lock"></i> Password</label>
         </div>
         <div class="txt_field">
-          <input type="address" required "address" onInvalid ="setCustomValidity('Please enter your Address!')">
+          <input type="address" required name="address" onInvalid ="setCustomValidity('Please enter your Address!')">
           <span></span>
           <label><i class="fa-solid fa-map-location-dot"></i> Address</label>
         </div>

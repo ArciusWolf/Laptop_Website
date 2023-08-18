@@ -41,7 +41,7 @@
     <nav class="sidebar locked">
       <div class="logo_items flex">
         <span class="nav_image">
-          <img src="images/logo.png" alt="logo_img" />
+          <img src="../img/logo.png" alt="logo_img" />
         </span>
         <span class="logo_name">AlphaFang</span>
       </div>
@@ -53,12 +53,7 @@
               <span class="title">Dashboard</span>
               <span class="line"></span>
             </div>
-            <li class="item">
-              <a href="admin.php" class="link flex">
-                <i class="bx bx-home-alt"></i>
-                <span>Overview</span>
-              </a>
-            </li>
+
             <li class="item">
               <a href="product_list.php" class="link flex">
                 <i class="bx bx-grid-alt"></i>
@@ -79,15 +74,15 @@
               <span class="line"></span>
             </div>
             <li class="item">
-              <a href="add-product.php" class="link flex">
+              <a href="product_add.php" class="link flex">
                 <i class="bx bx-cloud-upload"></i>
                 <span>Upload Product</span>
               </a>
             </li>
             <li class="item">
-              <a href="edit_product.php" class="link flex">
+              <a href="user_manager.php" class="link flex">
                 <i class="bx bxs-edit"></i>
-                <span>Edit Product</span>
+                <span>User Manager</span>
               </a>
             </li>
             <li class="item">
@@ -104,18 +99,12 @@
               <span class="line"></span>
             </div>
             <li class="item">
-              <a href="landing.php" class="link flex">
-                <i class="bx bx-cog"></i>
+              <a href="../landing.php" class="link flex">
+                <i class="bx bx-arrow-from-right"></i>
                 <span>Back To Store</span>
               </a>
             </li>
           </ul>
-        </div>
-
-        <div class="sidebar_profile flex">
-          <div class="data_text">
-            <span class="name">AlphaFang Studio</span>
-          </div>
         </div>
       </div>
     </nav>

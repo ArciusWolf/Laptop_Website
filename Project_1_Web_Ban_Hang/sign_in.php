@@ -66,7 +66,7 @@
   </header>
   <main>
     <div class="container">
-      <section class="formbox">
+      <section class="formbox" style="height: 500px;">
         <h1 class="login_h1">Login</h1>
         <?php if (isset($_GET['error'])) { ?>
           <p class="error" style="border: 2px solid red; border-radius: 10px; padding:10px; backdrop-filter:blur(15px); color: #ff0000;">
